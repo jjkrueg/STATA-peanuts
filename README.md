@@ -1,5 +1,5 @@
 # Small STATA packages
-This is my place for small packages that I coded while working as an RA to make my life a little easier with large amounts of data. 
+This is my space for small packages that I coded as an RA to make my life a little easier when working with large datasets. 
 
 ## wmc
 
