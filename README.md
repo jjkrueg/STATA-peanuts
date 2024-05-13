@@ -7,4 +7,37 @@ This is a small STATA package that can be interpreted as an extension to the _md
 
 ### Syntax
 
+```
+wmc [varlist] [if] [in] [, ABbreviate(integer 12) wv(string)]
+```
 
+We start by writing wmc which stands for weighted missingness count. We can specify the typical `if` and `in` clauses as well as the conventional abbrevation command known from the mdesc command. The innovation of this command allows for the weighting variable `wv`. Before doing any calculations the command checks that there is only one weighting variable, the weighting variable is never missing and that the weighting variable is in numeric format. 
+
+### Use
+
+```
+sysuse auto, clear
+qui replace mpg = . if mpg == 16
+wmc mpg, wv(price)
+```
+
+Which then yields the following output:
+
+```
+Weighting variable: price
+
+    Variable    |     Missing          Total     Percent Missing      Weighted Missing
+----------------+---------------------------------------------------------------------
+            mpg |           4             74           5.41           7.09
+----------------+---------------------------------------------------------------------
+ Sum of weighting variable:   456,229
+Mean of weighting variable:  6,165.26
+--------------------------------------------------------------------------------------
+```
+
+
+
+## Other projects (under development)
+
+1. wmcgraph
+2. multiple weighting missingness
