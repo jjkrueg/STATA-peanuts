@@ -10,7 +10,7 @@ This is a small STATA package that can be interpreted as an extension to the _md
 To use the `wmc` command you cna use the following code to install the package from GitHub (**v1.0**):
 
 ```
-net install wmc, from("https://raw.githubusercontent.com/jjkrueg/STATA_misc/main/Installation") replace
+net install wmc, from("https://raw.githubusercontent.com/jjkrueg/STATA-peanuts/main/Installation") replace
 ```
 
 Even if you have the package installed, make sure that it is updated `ado update, update`.
