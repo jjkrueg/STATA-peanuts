@@ -1,0 +1,8 @@
+v 1.71
+d 'wmc': A package for weighted missingness analysis
+d
+d Distribution-Date: 20241305
+d
+d Jan jakob Krüger
+d info@jjkrueger.de
+p wmc
