@@ -1,0 +1,20 @@
+v 1.71
+d {bf:wmc}: A Stata package for weighted missingness analysis.
+d Requires: Stata version 15 or higher.
+d
+d KW: Stata
+d KW: mdesc
+d KW: missingness
+d KW: weights
+d
+d
+d Distribution-Date: 20241305
+d
+d This  version: 13 May 2024
+d First version: 13 May 2024
+d License: MIT
+d
+d Author: Jan Jakob Krüger (info@jjkrueger.de)
+d
+f wmc.ado
+f wmc.sthlp
