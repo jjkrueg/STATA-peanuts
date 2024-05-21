@@ -3,11 +3,11 @@ This is my space for small packages that I coded as an RA to make my life a litt
 
 ## wmc
 
-This is a small STATA package that can be interpreted as an extension to the _mdesc_ command in STATA and allows for weights when investigating missing values. You specify the variables for which you want to see the number of missing values and then specify the variable by which you want to weight the missingness. This allows researchers to see that if a variable misses 5% of its observations whether when weighted this corresponds to 1% or 50% of another variable indicating how important the missing values are. 
+This is a small STATA package that can be interpreted as an extension to the _mdesc_ command in STATA and allows for (multiple) weights when investigating missing values. You specify the variables for which you want to see the number of missing values and then specify the variable(s) by which you want to weight the missingness. This allows researchers to see that if a variable misses 5% of its observations whether when weighted this corresponds to 1% or 50% of another variable indicating how important the missing values are. 
 
 ### Installation 
 
-To use the `wmc` command you cna use the following code to install the package from GitHub (**v1.0**):
+To use the `wmc` command you can use the following code to install the package from GitHub (**v2.0**):
 
 ```
 net install wmc, from("https://raw.githubusercontent.com/jjkrueg/STATA-peanuts/main/Installation") replace
@@ -18,10 +18,10 @@ Even if you have the package installed, make sure that it is updated `ado update
 ### Syntax
 
 ```
-wmc [varlist] [if] [in] [, ABbreviate(integer 12) wv(string)]
+wmc [varlist] [if] [in] [, ABbreviate(integer 12) wv(string) GRaph]
 ```
 
-We start by writing wmc which stands for weighted missingness count. We can specify the typical `if` and `in` clauses as well as the conventional abbrevation command known from the mdesc command. The innovation of this command allows for the weighting variable `wv`. Before doing any calculations the command checks that there is only one weighting variable, the weighting variable is never missing and that the weighting variable is in numeric format. 
+We start by writing wmc which stands for weighted missingness count. We can specify the typical `if` and `in` clauses as well as the conventional abbrevation command known from the mdesc command. The innovation of this command allows for the weighting variable `wv`. Before doing any calculations the command checks that there is less than four weighting variables, the weighting variables are never missing and that the weighting variables are in numeric format. 
 
 ### Use
 
@@ -43,6 +43,43 @@ Weighting variable: price
  Sum of weighting variable:   456,229
 Mean of weighting variable:  6,165.26
 --------------------------------------------------------------------------------------
+```
+You can specify multiple weights easily and multiple test variables easily by writing as such:
+
+```
+wmc rep78 weight trunk turn, wv(price length headroom)
+```
+
+With the below modificaitons to the pre-installed auto dataset this command will yield the following output. 
+
+```
+sysuse auto, clear
+	replace trunk = . if inrange(trunk, 11, 13)
+	replace weight = . if weight < 2000
+	replace turn = . if inrange(turn, 36, 39)
+wmc rep78 weight trunk turn, wv(price length headroom)
+```
+
+```
+1. Weighting variable: price
+2. Weighting variable: length
+3. Weighting variable: headroom
+
+    Variable    |     Missing          Total     Percent Missing      Weighted Missing 1      Weighted Missing 2      Weighted Missing 3
+----------------+-----------------------------------------------------------------------------------------------------------------------
+          rep78 |           5             74           6.76           7.05                     6.58                     6.55
+         weight |           7             74           9.46           7.18                     7.62                     8.13
+          trunk |          15             74          20.27          19.02                    19.23                    18.96
+           turn |          17             74          22.97          24.65                    21.21                    19.86
+
+Weighting variable statistics
+
+    Variable    |     Sum          Mean
+----------------+--------------------------------
+          price |    456,229       6,165.26
+         length |     13,907         187.93
+       headroom |        222           2.99
+
 ```
 
 
