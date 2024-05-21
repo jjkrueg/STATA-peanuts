@@ -97,6 +97,8 @@ wmc rep78 weight trunk turn, wv(price length headroom) graph
 
 which will produce a series of pie charts that look like this:
 
+![Graphing Output](graph_ex1.png)
+
 
 
 ## Other projects (under development)
