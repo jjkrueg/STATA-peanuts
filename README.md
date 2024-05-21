@@ -25,6 +25,8 @@ We start by writing wmc which stands for weighted missingness count. We can spec
 
 ### Use
 
+#### Single weights
+
 ```
 sysuse auto, clear
 qui replace mpg = . if mpg == 16
@@ -44,6 +46,9 @@ Weighting variable: price
 Mean of weighting variable:  6,165.26
 --------------------------------------------------------------------------------------
 ```
+
+#### Multiple weights
+
 You can specify multiple weights easily and multiple test variables easily by writing as such:
 
 ```
@@ -82,9 +87,19 @@ Weighting variable statistics
 
 ```
 
+#### Exploring the graphing option
+
+The package also includes a convenient grpahing option that allows users to visualise the missing observations for different variables and different weights. To use the option simply add the option graph at the end of the code like this:
+
+```
+wmc rep78 weight trunk turn, wv(price length headroom) graph
+```
+
+which will produce a series of pie charts that look like this:
+
 
 
 ## Other projects (under development)
 
-1. wmcgraph
-2. multiple weighting missingness
+1. Further graphing options
+2. Add analysis of the patterns of missingness (similar to naniar package in R)
