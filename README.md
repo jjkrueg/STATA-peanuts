@@ -36,15 +36,17 @@ wmc mpg, wv(price)
 Which then yields the following output:
 
 ```
-Weighting variable: price
+1. Weighting variable: price
 
     Variable    |     Missing          Total     Percent Missing      Weighted Missing
-----------------+---------------------------------------------------------------------
+----------------+----------------------------------------------------------------------
             mpg |           4             74           5.41           7.09
-----------------+---------------------------------------------------------------------
- Sum of weighting variable:   456,229
-Mean of weighting variable:  6,165.26
---------------------------------------------------------------------------------------
+
+Weighting variable statistics
+
+    Variable    |       Sum            Mean
+----------------+--------------------------------
+          price |    456,229       6,165.26
 ```
 
 #### Multiple weights
