@@ -107,3 +107,5 @@ which will produce a series of pie charts that look like this:
 
 1. Further graphing options
 2. Add analysis of the patterns of missingness (similar to naniar package in R)
+3. Add a nifty visualisation for missingness by defined groups (extension to by command)
+
