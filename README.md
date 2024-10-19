@@ -101,7 +101,34 @@ which will produce a series of pie charts that look like this:
 
 ![Graphing Output](graph_ex1.png)
 
+#### Alternate missing values
 
+Sometimes one is aware of certain values that are equivalent to missing values in a dataset such as -99 or -7. If one wants to add those values to the consideration one can simply and without changing the underlying dataset specify the `mvals' option. 
+
+#### Grouped patterns of misssingness
+
+Suppose one has a continuous varible such as weight or price and one has several groups as in the STATA default auto dataset. To check how missing values are distributed across different subgroups of a grouping variable one can use the `groups' option. This option will create the usual output for the entire variable in addition to the subgroup statistics:
+
+```
+wmc rep78, groups(foreign)
+'''
+
+```
+wmc_3 rep78, gr(foreign)
+
+Grouping variable: foreign
+
+    Variable    |     Missing          Total     Percent Missing
+----------------+-----------------------------------------------
+          rep78 |           5             74           6.76
+       foreign: |
+              0 |           4             52           7.69
+              1 |           1             22           4.55
+                |
+
+'''
+
+For this function one can also specify all the other options on weights, graphs and alternate missing values as described above. 
 
 ## Other projects (under development)
 
