@@ -103,15 +103,40 @@ which will produce a series of pie charts that look like this:
 
 #### Alternate missing values
 
-Sometimes one is aware of certain values that are equivalent to missing values in a dataset such as -99 or -7. If one wants to add those values to the consideration one can simply and without changing the underlying dataset specify the `mvals' option. 
+Sometimes one is aware of certain values that are equivalent to missing values in a dataset such as -99 or -7. If one wants to add those values to the consideration one can simply and without changing the underlying dataset specify the `mvals' option. See below the explained example:
+
+```
+sysuse auto, clear
+wmc_3 rep78
+replace rep78 = -9 if rep78 == 1
+wmc_3 rep78, mvals(-9)
+```
+
+```
+ wmc_3 rep78
+
+    Variable    |     Missing          Total     Percent Missing
+----------------+-----------------------------------------------
+          rep78 |           5             74           6.76
+
+
+wmc_3 rep78, mvals(-9)
+
+List of values considered missing: . , -9 
+
+    Variable    |     Missing          Total     Percent Missing
+----------------+-----------------------------------------------
+          rep78 |           7             74           9.46
+```
+
 
 #### Grouped patterns of misssingness
 
-Suppose one has a continuous varible such as weight or price and one has several groups as in the STATA default auto dataset. To check how missing values are distributed across different subgroups of a grouping variable one can use the `groups' option. This option will create the usual output for the entire variable in addition to the subgroup statistics:
+Suppose one has a continuous varible such as weight or price and one has several groups as in the STATA default auto dataset. To check how missing values are distributed across different subgroups of a grouping variable one can use the `groups` option. This option will create the usual output for the entire variable in addition to the subgroup statistics:
 
 ```
 wmc rep78, groups(foreign)
-'''
+```
 
 ```
 wmc_3 rep78, gr(foreign)
@@ -126,7 +151,7 @@ Grouping variable: foreign
               1 |           1             22           4.55
                 |
 
-'''
+```
 
 For this function one can also specify all the other options on weights, graphs and alternate missing values as described above. 
 
