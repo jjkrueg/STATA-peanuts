@@ -153,7 +153,51 @@ Grouping variable: foreign
 
 ```
 
-For this function one can also specify all the other options on weights, graphs and alternate missing values as described above. 
+For this function one can also specify all the other options on weights, graphs and alternate missing values as described above. A fully fledged command can be seen here below:
+
+```
+wmc_3 rep78 weight trunk, wv(price length headroom) mvals(-9 -99 -8) gr(foreign) graph
+
+List of values considered missing: . , -9 , -99 , -8
+
+1. Weighting variable: price
+2. Weighting variable: length
+3. Weighting variable: headroom
+
+Grouping variable: foreign
+
+
+
+    Variable    |     Missing          Total     Percent Missing      Weighted Missing 1      Weighted Missing 2      Weighted Missing 3
+----------------+-----------------------------------------------------------------------------------------------------------------------
+          rep78 |           5             74           6.76           7.05                    6.58                    6.55
+       foreign: |
+              0 |           4             52           7.69           6.07                    7.09                    6.71
+              1 |           1             22           4.55           9.25                    5.18                    6.09
+                |
+         weight |           7             74           9.46           7.18                    7.62                    8.13
+       foreign: |
+              0 |           2             52           3.85           2.79                    2.98                    2.44
+              1 |           5             22          22.73          17.04                   20.39                   24.35
+                |
+          trunk |          15             74          20.27          19.02                   19.23                   18.96
+       foreign: |
+              0 |           9             52          17.31          15.86                   16.26                   16.16
+              1 |           6             22          27.27          26.12                   27.40                   26.96
+                |
+
+
+
+Weighting variable statistics
+
+    Variable    |     Sum          Mean
+----------------+--------------------------------
+          price |    456,229       6,165.26
+         length |     13,907         187.93
+       headroom |        222           2.99
+
+
+```
 
 ## Other projects (under development)
 
