@@ -157,7 +157,9 @@ For this function one can also specify all the other options on weights, graphs 
 
 ```
 wmc rep78 weight trunk, wv(price length headroom) mvals(-9 -99 -8) gr(foreign) graph
+```
 
+```
 List of values considered missing: . , -9 , -99 , -8
 
 1. Weighting variable: price
