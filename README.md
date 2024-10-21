@@ -107,20 +107,20 @@ Sometimes one is aware of certain values that are equivalent to missing values i
 
 ```
 sysuse auto, clear
-wmc_3 rep78
+wmc rep78
 replace rep78 = -9 if rep78 == 1
-wmc_3 rep78, mvals(-9)
+wmc rep78, mvals(-9)
 ```
 
 ```
- wmc_3 rep78
+ wmc rep78
 
     Variable    |     Missing          Total     Percent Missing
 ----------------+-----------------------------------------------
           rep78 |           5             74           6.76
 
 
-wmc_3 rep78, mvals(-9)
+wmc rep78, mvals(-9)
 
 List of values considered missing: . , -9 
 
@@ -139,7 +139,7 @@ wmc rep78, groups(foreign)
 ```
 
 ```
-wmc_3 rep78, gr(foreign)
+wmc rep78, gr(foreign)
 
 Grouping variable: foreign
 
@@ -156,7 +156,7 @@ Grouping variable: foreign
 For this function one can also specify all the other options on weights, graphs and alternate missing values as described above. A fully fledged command can be seen here below:
 
 ```
-wmc_3 rep78 weight trunk, wv(price length headroom) mvals(-9 -99 -8) gr(foreign) graph
+wmc rep78 weight trunk, wv(price length headroom) mvals(-9 -99 -8) gr(foreign) graph
 
 List of values considered missing: . , -9 , -99 , -8
 
