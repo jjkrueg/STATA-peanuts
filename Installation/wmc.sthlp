@@ -1,5 +1,5 @@
 {smcl}
-{* 13may2024}{...}
+{* 20oct2024}{...}
 {cmd:help wmc}
 {hline}
 
@@ -14,7 +14,10 @@
 {ifin}
 [,
 {cmdab:ab:breviate(#)}
-{cmd:wv({varname})}
+{cmd:wv({varlist})}
+{cmd:graph}
+{cmd:groups({varname})
+{cmd:mvals(values)
 ]
 {p_end}
 
@@ -25,13 +28,19 @@
 
 {p}Produces a table with the number of missing values, total number 
 of cases, percent missing and weighted share of missing values for each variable in {varlist}. 
-{cmd:wmc} works with both numeric and string variables.{p_end}
+{cmd:wmc} works with both numeric and string variables. This command is based on the the {cmd:mdesc} command but expands it to allow subgroup analysis as well as weighting and some other small features. {p_end}
 
 {title:Options}
 
 {p 4 8 2}{opt ab:breviate(#)} abbreviate variable names to {it:#} of characters; default is {bf:ab(12)}.{p_end}
 
 {p 4 8 2}{opt wv(string)} specify the variable by which we want to weigh the variables whose missingness we want to analyse; the default is none.{p_end}
+
+{p 4 8 2}{opt graph} allows the user to automatically create formatted pie charts of the missingness of a variable by weighting variable for all specified variables.{p_end}
+
+{p 4 8 2}{opt groups(varname)} specify the subgroups by which we want to investigate the missingness of the variables; the default is none.{p_end}
+
+{p 4 8 2}{opt mvals(values)} specify the values which in addition to the traditional . You want to consider as missing; the default is none.{p_end}
 
 {title:Saved Results}
 
