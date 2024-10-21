@@ -18,7 +18,7 @@ Even if you have the package installed, make sure that it is updated `ado update
 ### Syntax
 
 ```
-wmc [varlist] [if] [in] [, ABbreviate(integer 12) wv(string) GRaph]
+wmc [varlist] [if] [in] [, ABbreviate(integer 12) wv(string) GRaph groups(varname) mvals(values)]
 ```
 
 We start by writing wmc which stands for weighted missingness count. We can specify the typical `if` and `in` clauses as well as the conventional abbrevation command known from the mdesc command. The innovation of this command allows for the weighting variable `wv`. Before doing any calculations the command checks that there is less than four weighting variables, the weighting variables are never missing and that the weighting variables are in numeric format. 
